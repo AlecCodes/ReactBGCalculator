@@ -11,6 +11,8 @@ function App() {
   const [mgButtonState, setMGButtonState] = useState(false)
   const [unitConversionState, setUnitConversionState] = useState('mmol/L')
 
+  let converstionFunction = getMGPerdL;
+
   ///////////////////////////////////
   //EVENT HANDLERS
   ///////////////////////////////////
@@ -19,34 +21,48 @@ function App() {
     setMMButtonState(true)
     setMGButtonState(false)
     setUnitConversionState('mmol/L')
+    converstionFunction = getMGPerdL;
   }
 
   function mgClickHandler(){
     setMGButtonState(true)
     setMMButtonState(false)
     setUnitConversionState('mg/dL')
+    converstionFunction = getMMOLPerLiter;
   }
 
-  ///////////////////////////////////
-  //UseEffect Hooks
-  ///////////////////////////////////
 
+  function submitHandler(e){
+    e.preventDefault();
+    const form = e.target;
+    const formdata = new FormData(form);
+
+    const formJSON = Object.fromEntries(formdata.entries())
+    
+    console.log(formJSON)
+  }
 
 
   return (
+
+    //use label html tag!
+
     <div className="App">
       <h1>BG Calculator</h1>
       <div className="formContainer">
-        <form>
-          mmol/L<input type="checkbox" 
+        <form onSubmit={submitHandler}>
+          mmol/L<input type="checkbox"
+          name = "mmolInputCheckBox" 
           onChange={mmClickHandler}
           checked = {mmButtonState}
           />
           mg/dL<input type="checkbox"
+          name = "mgInputCheckBox"
           onChange={mgClickHandler}
           checked = {mgButtonState}
           />
           <input type="number"
+          name = "bgInputValue"
           />
           <input type="Submit"/>
         </form>
