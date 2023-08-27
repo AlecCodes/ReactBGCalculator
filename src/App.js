@@ -10,6 +10,7 @@ function App() {
   const [mmButtonState, setMMButtonState] = useState(true)
   const [mgButtonState, setMGButtonState] = useState(false)
   const [unitConversionState, setUnitConversionState] = useState('mg/dL')
+  const [stepState, setStepState] = useState('0.1')
 
   let converstionFunction = getMGPerdL;
 
@@ -21,6 +22,7 @@ function App() {
     setMMButtonState(true)
     setMGButtonState(false)
     setUnitConversionState('mg/dL')
+    setStepState('0.1')
     converstionFunction = getMGPerdL;
   }
 
@@ -28,6 +30,7 @@ function App() {
     setMGButtonState(true)
     setMMButtonState(false)
     setUnitConversionState('mmol/L')
+    setStepState('1')
     converstionFunction = getMMOLPerLiter;
   }
 
@@ -64,7 +67,7 @@ function App() {
           checked = {mgButtonState}
           />
           <input type="number"
-          step = "0.1"
+          step = {stepState}
           name = "bgInputValue"
           />
           <input type="Submit"/>
