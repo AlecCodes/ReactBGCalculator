@@ -10,11 +10,6 @@ function App() {
 
   const [mmButtonState, setMMButtonState] = useState(true)
   const [mgButtonState, setMGButtonState] = useState(false)
-  const [resultsState, setResultsState] = useState('')
-  //This should default to one or the other
-  const [conversionState, setConversionState] = useState()
-  const [BGEntryState, setBGEntryState] = useState(0)
-
 
   ///////////////////////////////////
   //EVENT HANDLERS
@@ -23,44 +18,13 @@ function App() {
   function mmClickHandler(){
     setMMButtonState(true)
     setMGButtonState(false)
-    setBGEntryState(0)
-    setConversionState(() => mmolToMG)
   }
 
   function mgClickHandler(){
     setMGButtonState(true)
     setMMButtonState(false)
-    setBGEntryState(0)
-    setConversionState(() => mgToMM)
-  }
 
-  function mmolToMG(event){
-    event.preventDefault()
-    console.log(getMGPerdL(BGEntryState), "SHOULD BE THE RESULT...")
-    setResultsState(getMGPerdL(BGEntryState))
   }
-
-  function mgToMM(event){
-    event.preventDefault()
-    console.log(getMMOLPerLiter(BGEntryState), "SHOULD BE THE RESULT...")
-    setResultsState(getMMOLPerLiter(BGEntryState))
-  }
-
-  ///////////////////////////////////
-  //CHANGE HANDLERS
-  ///////////////////////////////////
-
-  function BGInputHandler(event){
-    event.preventDefault()
-    console.log("BG INPUT CHANGED", event.target.value)
-    setBGEntryState(event.target.value)
-  }
-
-  function handleSubmit(event){
-    event.preventDefault()
-    conversionState()
-  }
- 
 
   return (
     <div className="App">
@@ -76,24 +40,15 @@ function App() {
           checked = {mgButtonState}
           />
           <input type="number"
-          onChange={BGInputHandler}
-          value={BGEntryState}
           />
           <input type="Submit"/>
         </form>
       </div>
-      
-      <button
-      onClick={conversionState}
-      >
-        Try this
-      </button>
-
       <div className="resultsContainer">
         <div>
           <h2>Converted Value:</h2>
           <h3></h3>
-          <h3>{resultsState}</h3>
+          <input type="text"></input>
         </div>
       </div>
     </div>
