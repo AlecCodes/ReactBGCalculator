@@ -1,6 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {getMGPerdL, getMMOLPerLiter} from './conversions'
 
 //Only after changing buttons does the submit button use the proper calcualtion. Maybe we don't use a form?
@@ -10,6 +9,7 @@ function App() {
 
   const [mmButtonState, setMMButtonState] = useState(true)
   const [mgButtonState, setMGButtonState] = useState(false)
+  const [unitConversionState, setUnitConversionState] = useState('mmol/L')
 
   ///////////////////////////////////
   //EVENT HANDLERS
@@ -18,24 +18,31 @@ function App() {
   function mmClickHandler(){
     setMMButtonState(true)
     setMGButtonState(false)
+    setUnitConversionState('mmol/L')
   }
 
   function mgClickHandler(){
     setMGButtonState(true)
     setMMButtonState(false)
-
+    setUnitConversionState('mg/dL')
   }
+
+  ///////////////////////////////////
+  //UseEffect Hooks
+  ///////////////////////////////////
+
+
 
   return (
     <div className="App">
       <h1>BG Calculator</h1>
       <div className="formContainer">
         <form>
-          MM<input type="checkbox" 
+          mmol/L<input type="checkbox" 
           onChange={mmClickHandler}
           checked = {mmButtonState}
           />
-          MG<input type="checkbox"
+          mg/dL<input type="checkbox"
           onChange={mgClickHandler}
           checked = {mgButtonState}
           />
@@ -47,7 +54,7 @@ function App() {
       <div className="resultsContainer">
         <div>
           <h2>Converted Value:</h2>
-          <h3></h3>
+          <h3>{unitConversionState}</h3>
           <input type="text"></input>
         </div>
       </div>
