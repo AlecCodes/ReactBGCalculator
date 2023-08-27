@@ -40,6 +40,8 @@ function App() {
     const formJSON = Object.fromEntries(formdata.entries())
     
     console.log(formJSON)
+
+    formJSON.mgInputCheckBox ? console.log(formJSON.bgInputValue, " converts to " ,getMGPerdL(formJSON.bgInputValue)) : console.log(formJSON.bgInputValue, " converts to " , getMMOLPerLiter(formJSON.bgInputValue))
   }
 
 
