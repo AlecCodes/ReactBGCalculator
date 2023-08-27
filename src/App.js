@@ -13,8 +13,7 @@ function App() {
   const [stepState, setStepState] = useState('0.1')
   const [resultsState, setResultsState] = useState('')
 
-  let converstionFunction = getMGPerdL;
-
+ 
   ///////////////////////////////////
   //EVENT HANDLERS
   ///////////////////////////////////
@@ -25,7 +24,6 @@ function App() {
     setUnitConversionState('mg/dL')
     setStepState('0.1')
     setResultsState(null)
-    converstionFunction = getMGPerdL;
   }
 
   function mgClickHandler(){
@@ -34,7 +32,6 @@ function App() {
     setUnitConversionState('mmol/L')
     setStepState('1')
     setResultsState(null)
-    converstionFunction = getMMOLPerLiter;
   }
 
 
