@@ -11,6 +11,7 @@ function App() {
   const [mgButtonState, setMGButtonState] = useState(false)
   const [unitConversionState, setUnitConversionState] = useState('mg/dL')
   const [stepState, setStepState] = useState('0.1')
+  const [resultsState, setResultsState] = useState('')
 
   let converstionFunction = getMGPerdL;
 
@@ -23,6 +24,7 @@ function App() {
     setMGButtonState(false)
     setUnitConversionState('mg/dL')
     setStepState('0.1')
+    setResultsState(null)
     converstionFunction = getMGPerdL;
   }
 
@@ -31,6 +33,7 @@ function App() {
     setMMButtonState(false)
     setUnitConversionState('mmol/L')
     setStepState('1')
+    setResultsState(null)
     converstionFunction = getMMOLPerLiter;
   }
 
@@ -42,7 +45,8 @@ function App() {
 
     const formJSON = Object.fromEntries(formdata.entries())
     
-    console.log(formJSON)
+
+    formJSON.mgInputCheckBox ? setResultsState(getMMOLPerLiter(formJSON.bgInputValue)) : setResultsState(getMGPerdL(formJSON.bgInputValue))
 
     formJSON.mgInputCheckBox ? console.log(formJSON.bgInputValue, "mg/dL converts to " ,getMMOLPerLiter(formJSON.bgInputValue),"mmol/L") : console.log(formJSON.bgInputValue, "mmol/L converts to " , getMGPerdL(formJSON.bgInputValue), "mg/dL")
   }
@@ -76,8 +80,7 @@ function App() {
       <div className="resultsContainer">
         <div>
           <h2>Converted Value:</h2>
-          <h3>{unitConversionState}</h3>
-          <input type="text"></input>
+          <h3>{resultsState}  {unitConversionState}</h3>
         </div>
       </div>
     </div>
