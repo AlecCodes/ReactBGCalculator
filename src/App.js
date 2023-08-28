@@ -54,30 +54,32 @@ function App() {
     //use label html tag!
 
     <div className="App">
-      <h1>BG Calculator</h1>
-      <div className="formContainer">
-        <form onSubmit={submitHandler}>
-          mmol/L<input type="checkbox"
-          name = "mmolInputCheckBox" 
-          onChange={mmClickHandler}
-          checked = {mmButtonState}
-          />
-          mg/dL<input type="checkbox"
-          name = "mgInputCheckBox"
-          onChange={mgClickHandler}
-          checked = {mgButtonState}
-          />
-          <input type="number"
-          step = {stepState}
-          name = "bgInputValue"
-          />
-          <input type="Submit"/>
-        </form>
-      </div>
-      <div className="resultsContainer">
-        <div>
-          <h2>Converted Value:</h2>
-          <h3>{resultsState}  {unitConversionState}</h3>
+      <div className='parentContainer'>
+        <h1>BG Calculator</h1>
+        <div className="formContainer">
+          <form onSubmit={submitHandler}>
+            mmol/L<input type="checkbox"
+            name = "mmolInputCheckBox" 
+            onChange={mmClickHandler}
+            checked = {mmButtonState}
+            />
+            mg/dL<input type="checkbox"
+            name = "mgInputCheckBox"
+            onChange={mgClickHandler}
+            checked = {mgButtonState}
+            />
+            <input type="number"
+            step = {stepState}
+            name = "bgInputValue"
+            />
+            <input type="Submit"/>
+          </form>
+        </div>
+        <div className="resultsContainer">
+          <div>
+            <h2>Converted Value:</h2>
+            <h3><span id='results'>{resultsState}</span> {unitConversionState}</h3>
+          </div>
         </div>
       </div>
     </div>

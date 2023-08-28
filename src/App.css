@@ -1,5 +1,25 @@
+h3{
+  display: flex;
+  justify-content: center;
+}
+#results{
+  width:  90px;
+  border: solid;
+}
+
 .App {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
   text-align: center;
+}
+
+h1{
+  color: white;
+  background-color: blue;
+}
+
+.ParentContainer{
 }
 
 .App-logo {
