@@ -2,8 +2,11 @@ import './App.css';
 import {useState, useEffect} from 'react';
 import {getMGPerdL, getMMOLPerLiter} from './conversions'
 
-//Only after changing buttons does the submit button use the proper calcualtion. Maybe we don't use a form?
-
+//IDEAS
+//Highlight the results?
+//SHOULD WE USE REDUX>?!? then add more features, such as entering a rnage
+// mg (mmol) result!? format it this way
+//Highlight
 
 function App() {
 
