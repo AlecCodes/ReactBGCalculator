@@ -17,4 +17,4 @@ function getMGPerdL(mm){
     return roundUpIfFirstDecNine(mm * 18.018)
 }
 
-module.exports = {getMGPerdL, getMMOLPerLiter}
+module.exports = {getMGPerdL, getMMOLPerLiter, oneDecRound}
