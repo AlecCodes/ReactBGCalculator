@@ -1,6 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 import {getMGPerdL, getMMOLPerLiter, oneDecRound} from './conversions'
+import {ISO_mg_to_mmol, ISO_mmol_to_mg} from './ISO_Values'
+
+//console.log(ISO_mg_to_mmol, ISO_mmol_to_mg)
+
+
 
 //This should contain the ISO complaint values from the document
 const mmol_to_mg = {
@@ -18,7 +23,6 @@ const mmol_to_mg = {
   1.1 : 19
 }
 
-
 for (let i = 0; i < 1.2; i += 0.1){
   const mmolValue = oneDecRound(i)
   //reference the ISO values here
@@ -28,6 +32,7 @@ for (let i = 0; i < 1.2; i += 0.1){
   })
 
 }
+
 
 test('1.1mmol/L is 19mg/dL', () => {
     expect(getMGPerdL(1.1)).toBe(19);
