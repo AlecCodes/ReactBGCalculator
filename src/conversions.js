@@ -1,20 +1,18 @@
+import {ISO_mg_to_mmol, ISO_mmol_to_mg} from "./ISO_Values"
 
-function roundUpIfFirstDecNine(num){
+export function roundUpIfFirstDecNine(num){
     const decimalPart = num - Math.floor(num)
     return (Math.floor(decimalPart * 10) === 9) ? Math.ceil(num) : num - decimalPart
 }
 
-function oneDecRound(num){
+export function oneDecRound(num){    
     return Math.round(num * 10) / 10
 }
 
-
-function getMMOLPerLiter(mg){
+export function getMMOLPerLiter(mg){
     return oneDecRound(mg/18.018)
 }
 
-function getMGPerdL(mm){
+export function getMGPerdL(mm){
     return roundUpIfFirstDecNine(mm * 18.018)
 }
-
-module.exports = {getMGPerdL, getMMOLPerLiter, oneDecRound}
