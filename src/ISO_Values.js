@@ -1208,7 +1208,7 @@ const ISO_mg_to_mmol_float = {
 }
 
 const ISO_mmol_to_mg_float = {
-    0.0: 0,
+0.0: 0,
 0.1: 1,
 0.2: 4,
 0.3: 5,
@@ -1883,4 +1883,4 @@ const ISO_mmol_to_mg = {
  }
 
 
-module.exports = {ISO_mg_to_mmol, ISO_mmol_to_mg}
+module.exports = {ISO_mg_to_mmol, ISO_mmol_to_mg, ISO_mg_to_mmol_float, ISO_mmol_to_mg_float}

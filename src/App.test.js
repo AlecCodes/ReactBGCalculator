@@ -1,23 +1,18 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 import {getMGPerdL, getMMOLPerLiter, oneDecRound} from './conversions'
-import {ISO_mg_to_mmol, ISO_mmol_to_mg} from './ISO_Values'
+import {ISO_mg_to_mmol, ISO_mmol_to_mg, ISO_mg_to_mmol_float, ISO_mmol_to_mg_float} from './ISO_Values'
 
 
-//console.log(ISO_mg_to_mmol, ISO_mmol_to_mg)
-
-
-for (const key in ISO_mmol_to_mg){
-  const floatMmolValue = parseFloat(key)
-  console.log("KEY: "+key, "FLOATKEY: "+floatMmolValue)
-  const mgValue = ISO_mmol_to_mg[key]
-  test(`${floatMmolValue}mmol/dL is ${mgValue}mg/dL`, () => {
-    expect(getMGPerdL(floatMmolValue)).toBe(mgValue)
+for (let i = 0; i <= 33.4; i += 0.1){
+  const mmolValue = i.toFixed(1)  
+  const ISOMgValue = ISO_mmol_to_mg_float[mmolValue]
+  test (`${mmolValue}mmol/L is ${ISOMgValue}mg/dL`, () => {
+    expect(getMGPerdL(mmolValue)).toBe(ISOMgValue)
   })
 }
 
-
-
+//console.log(ISO_mmol_to_mg_float[30.0])
 
 
 //This should contain the ISO complaint values from the document
@@ -36,23 +31,7 @@ const mmol_to_mg = {
   1.1 : 19
 }
 
-// for (let i = 0; i < 1.2; i += 0.1){
-//   const mmolValue = oneDecRound(i)
-//   //reference the ISO values here
-//   const mgISOConversion = mmol_to_mg[mmolValue]
-//   test(`${mmolValue}mmol/L is ${mgISOConversion} mg/dL`, () => {
-//     expect(getMGPerdL(mmolValue)).toBe(mgISOConversion)
-//   })
 
-// }
-
-
-// test('1.1mmol/L is 19mg/dL', () => {
-//     expect(getMGPerdL(1.1)).toBe(19);
-// })
-
-// test('renders learn react link', () => {
-//   render(<App />);
-//   const linkElement = screen.getByText(/learn react/i);
-//   expect(linkElement).toBeInTheDocument();
-// });
+test('1.1mmol/L is 19mg/dL', () => {
+    expect(getMGPerdL(1.1)).toBe(19);
+})

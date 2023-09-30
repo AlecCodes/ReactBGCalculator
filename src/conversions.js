@@ -1,4 +1,4 @@
-import {ISO_mg_to_mmol, ISO_mmol_to_mg} from "./ISO_Values"
+import {ISO_mg_to_mmol, ISO_mmol_to_mg, ISO_mmol_to_mg_float, ISO_mg_to_mmol_float} from "./ISO_Values"
 
 export function roundUpIfFirstDecNine(num){
     const decimalPart = num - Math.floor(num)
@@ -14,5 +14,6 @@ export function getMMOLPerLiter(mg){
 }
 
 export function getMGPerdL(mm){
-    return roundUpIfFirstDecNine(mm * 18.018)
+    return (ISO_mmol_to_mg_float[mm]) ? ISO_mmol_to_mg_float[mm] : 'not found'
+//    return roundUpIfFirstDecNine(mm * 18.018)
 }
