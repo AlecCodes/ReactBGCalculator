@@ -6,18 +6,18 @@ import {ISO_mg_to_mmol, ISO_mmol_to_mg, ISO_mg_to_mmol_float, ISO_mmol_to_mg_flo
 
 for (let i = 0; i <= 33.4; i += 0.1){
   const mmolValue = i.toFixed(1)  
-  const ISOMgValue = ISO_mmol_to_mg_float[mmolValue]
+  const ISOMgValue = ISO_mmol_to_mg[mmolValue]
   test (`${mmolValue}mmol/L is ${ISOMgValue}mg/dL`, () => {
     expect(getMGPerdL(mmolValue)).toBe(ISOMgValue)
   })
 }
 
-//console.log(ISO_mmol_to_mg_float[30.0])
+console.log(ISO_mmol_to_mg_float[33])
 
 
 //This should contain the ISO complaint values from the document
 const mmol_to_mg = {
-  0 : 0,
+  0.0 : 0,
   0.1 : 1,
   0.2 : 3,
   0.3 : 5,

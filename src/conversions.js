@@ -14,6 +14,7 @@ export function getMMOLPerLiter(mg){
 }
 
 export function getMGPerdL(mm){
-    return (ISO_mmol_to_mg_float[mm]) ? ISO_mmol_to_mg_float[mm] : 'not found'
+    if (mm == 0){return 0}
+    return (ISO_mmol_to_mg[mm]) ? ISO_mmol_to_mg[mm] : 'not found'
 //    return roundUpIfFirstDecNine(mm * 18.018)
 }
