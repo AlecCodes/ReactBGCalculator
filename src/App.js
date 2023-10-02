@@ -42,7 +42,7 @@ function App() {
     e.preventDefault();
     const form = e.target;
     const formdata = new FormData(form);
-
+    //Get the entered value as an object
     const formJSON = Object.fromEntries(formdata.entries())
     
 

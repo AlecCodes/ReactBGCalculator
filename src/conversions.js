@@ -14,7 +14,16 @@ export function getMMOLPerLiter(mg){
     return (ISO_mg_to_mmol[mg]) ? ISO_mg_to_mmol[mg] : 'not found'
 }
 
-export function getMGPerdL(mm){
+export function getMGPerdL(mm){    
+    //Whole numbers entered without a decimal should be converted to a float string
+    const isWhole = (mm - parseInt(mm).toFixed() === 0 && !(mm.toString().includes('.')))
+
+    if (isWhole){
+        const stringFloat = mm.toString() + '.0'
+        return ISO_mmol_to_mg[stringFloat]
+    }
+
+
     if (mm == 0){return 0}
     return (ISO_mmol_to_mg[mm]) ? ISO_mmol_to_mg[mm] : 'not found'
 }
