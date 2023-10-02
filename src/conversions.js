@@ -10,11 +10,11 @@ export function oneDecRound(num){
 }
 
 export function getMMOLPerLiter(mg){
-    return oneDecRound(mg/18.018)
+    if (mg == 0) {return 0}
+    return (ISO_mg_to_mmol[mg]) ? ISO_mg_to_mmol[mg] : 'not found'
 }
 
 export function getMGPerdL(mm){
     if (mm == 0){return 0}
     return (ISO_mmol_to_mg[mm]) ? ISO_mmol_to_mg[mm] : 'not found'
-//    return roundUpIfFirstDecNine(mm * 18.018)
 }
