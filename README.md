@@ -2,6 +2,8 @@
 
 #### By Alec Hannaford - International Product Surveillance Specialist
 ----
+[Live Site]https://bgcalculator.onrender.com/
+----
 ## Background
 ISO-15197 (2003) contains the table of blood glucose (BG) conversions between mmol/L and mg/dL. This table is frequently referenced by our International Post-market Surveillance team while processing complaints, due to the fact that different regulatory bodies require different units of BG measurements. A simple browser-based calculator to handle the conversions will yield progress on our goal of reducing the turnover-time necessary to process a complaint. 
 
