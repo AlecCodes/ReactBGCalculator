@@ -15,7 +15,7 @@ export function getMMOLPerLiter(mg){
 }
 
 export function getMGPerdL(mm){    
-    //Whole numbers entered without a decimal should be converted to a float string
+    //Whole numbers entered without a decimal should be converted to a float string, we can do this by 
     const isWhole = (mm - parseInt(mm).toFixed() === 0 && !(mm.toString().includes('.')))
 
     if (isWhole){

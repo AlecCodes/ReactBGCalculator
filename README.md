@@ -6,9 +6,7 @@
 ISO [XXXX] is the table of blood glucose (BG) conversions between mmol/L and mg/dL. This table is frequently referenced by our International Post-market Surveillance team while processing complaints, due to the fact that different regulatory bodies require different units of BG measurements. A simple browser-based calculator to handle the conversions will yield progress on our goal of reducing the turnover-time necessary to process a complaint. 
 
 ##The App
-This blood glucose calculator is a single-page React App. Blood glucose values are entered by the user, who clicks a checkbox to indicate which unit of measurement is being entered. 
+This blood glucose calculator is a single-page React App. Blood glucose values are entered by the user, who clicks a checkbox to indicate which unit of measurement is being entered. A tertiary statement in the submission handler executes the relevant conversion on the value entered, and renders the converted result to the results box. Two functions are used to lookup the conversions - getMGPerdL and getMMOLPerLiter. 
 
-##Problems
-If the user enters a whole number (no decimal) as a mmol/dL input value, it will return undefined due to the fact that the lookup table has float key values.  
-If the isWhole condition is met, than this means that whole floats (ending in .0) will get converted to 32.0.0, and return undefined from the table. 
-So, we need to make sure the user can enter both 32 and 32.0 and get the same result. This can be done by ensuring that isWhole evaluates to true if no dots are contained in the input.
+##ISO Complaince & Validation
+The ISO_Values file contains both ISO conversion tables as JavaScript objects. Rather than computing the conversion, the getMGPerdL and getMMOLPerLiter functions accept a Number imput and returns the corresponding value from the table. The Jest testing suite App.test.js uses 2 loops to test getMMOLPerLiter and getMGPerdL for every input value with a range of 0-600mg/dL and 0-33.3mmol/dL, respectively.

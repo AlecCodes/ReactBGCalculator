@@ -48,7 +48,7 @@ function App() {
 
     formJSON.mgInputCheckBox ? setResultsState(getMMOLPerLiter(formJSON.bgInputValue)) : setResultsState(getMGPerdL(formJSON.bgInputValue))
 
-    formJSON.mgInputCheckBox ? console.log(formJSON.bgInputValue, "mg/dL converts to " ,getMMOLPerLiter(formJSON.bgInputValue),"mmol/L") : console.log(formJSON.bgInputValue, "mmol/L converts to " , getMGPerdL(formJSON.bgInputValue), "mg/dL")
+//    formJSON.mgInputCheckBox ? console.log(formJSON.bgInputValue, "mg/dL converts to " ,getMMOLPerLiter(formJSON.bgInputValue),"mmol/L") : console.log(formJSON.bgInputValue, "mmol/L converts to " , getMGPerdL(formJSON.bgInputValue), "mg/dL")
   }
 
 
